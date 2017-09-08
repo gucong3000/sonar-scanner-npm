@@ -18,16 +18,13 @@ install:
 
 script:
   - npm test --
-    --reporter mocha-sonar-generic-test-coverage
-    --reporter-options outputFile=.scannerwork/unittest.xml
+    --reporter mocha-sonarqube-reporter
 
   # Regular users will call "sonar-scanner" - but not here: eat your own dog food! :-)
   - node dist/bin/sonar-scanner
     "-Dsonar.projectName=SonarQube/SonarCloud Scanner for the JavaScript world"
     "-Dsonar.sources=dist"
     "-Dsonar.tests=specs"
-    "-Dsonar.javascript.lcov.reportPath=coverage/lcov.info"
-    "-Dsonar.genericcoverage.unitTestReportPaths=.scannerwork/unittest.xml"
 
 cache:
   directories:
