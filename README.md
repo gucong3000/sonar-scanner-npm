@@ -6,7 +6,7 @@ to install any specific tool or (Java) runtime.
 
 This module is analyzed on SonarCloud using
 itself:
-- See the [Gulp file](https://github.com/bellingard/sonar-scanner-npm/blob/master/gulpfile.js)
+- See the [.travis.yml](https://github.com/bellingard/sonar-scanner-npm/blob/master/.travis.yml)
 - See the [analysis results on SonarCloud](https://sonarcloud.io/dashboard?id=sonarqube-scanner)
 
 [![Build status](https://travis-ci.org/bellingard/sonar-scanner-npm.svg?branch=master)](https://travis-ci.org/bellingard/sonar-scanner-npm) [![Quality Gate on SonarCloud](https://sonarcloud.io/api/badges/gate?key=sonarqube-scanner)](https://sonarcloud.io/dashboard/index/sonarqube-scanner) [![Releases](https://img.shields.io/github/release/bellingard/sonar-scanner-npm.svg)](https://github.com/bellingard/sonar-scanner-npm/releases)

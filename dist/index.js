@@ -27,7 +27,6 @@ function scanCLI(cliArgs, params, callback) {
 
     // determine the command to run and execute it
     sonarQubeExecutable((sqScannerCommand) => {
-        console.log(sqScannerCommand, cliArgs, options_exec)
         exec(sqScannerCommand, cliArgs, options_exec);
         log("SonarQube analysis finished.");
         callback();
