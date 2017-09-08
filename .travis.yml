@@ -19,7 +19,7 @@ script:
   - npm test --
     --reporter mocha-sonar-generic-test-coverage
     --reporter-options outputFile=.scannerwork/unittest.xml
-  - $SONAR_SCANNER_HOME/bin/sonar-scanner
+  - node dist/bin/sonar-scanner
     "-Dsonar.organization=default"
     "-Dsonar.projectName=SonarQube/SonarCloud Scanner for the JavaScript world"
     "-Dsonar.sources=dist"
