@@ -11,19 +11,16 @@ addons:
     token:
       secure: "KcUbk6T/Rjx2SaQGyG5oTFr/82EsHsGyQqnnKalPKCN83O809lZAOmgg+Y4qx/240CAhrrRck5+qNI9Lm35sJxD+M6RC2VuUn6gsZs+nFDwzwd430hb3Zi0f825+5eZGZfQ7vo2kJKMwxiQHgy6AR89sTsQEwJv/aoroqAGjMvfg1Wcd9Z2hr5zMW1YGirphZvKpRGP/akOuvQnfGDZCL0n9sgozUlY3IYKwArGWuGkiIjciNxXZLQaaN15aNqL6dYXdkDwoLmLKej+EqSrVD9yb2v1Va6d3oC0MwbwH/KhxkgI5awG/i/vsY8yhF52Y9Dy10afNC/u62/N2hsRn6FKAQ387jPwjcrkH0DWOXVDpvYIxjjDCr8Nd8QERpupnb1JZX+viSMIWsKWRIBi1Z9i6uxPHhaL4zX69NBVZGHNN62lXQE5yhAeSuHqVNx56Hx3JH5FNnnfjgwCkWIoZ2t+rrcQ84xCAOzJazDFRn2iOcjOwB+P20xIhKVQNYJdhMP/hK8sZzA0WZbwFgy09+1UdOH4REKjC5R93CL+mg24fvPQiv61OcvV+xz4HcJNTyQPU25VtQWDZkm0BDTv98TZRMi6EzP2cQsxl7tXxNj0Mu5GZdNWyPVmiEMFJm32hn5SDmKFl7UNitawyq3GPjnGFOmtBM/8tDTU/bTqNT/U="
 
+env:
+  - SONARQUBE_SCANNER_PARAMS="{\"sonar.projectKey\":\"sonarqube-scanner\",\"sonar.projectName\":\"SonarQube/SonarCloud Scanner for the JavaScript world\",\"sonar.projectVersion\":\"2.1.0\",\"sonar.projectDescription\":\"SonarQube/SonarCloud Scanner for the JavaScript world\",\"sonar.sources\":\"dist\",\"sonar.exclusions\":\"node_modules/**\",\"sonar.links.homepage\":\"https://github.com/bellingard/sonar-scanner-npm\",\"sonar.links.issues\":\"https://github.com/bellingard/sonar-scanner-npm/issues\",\"sonar.links.scm\":\"git+https://github.com/bellingard/sonar-scanner-npm.git\",\"sonar.organization\":\"default\",\"sonar.tests\":\"specs\",\"sonar.javascript.lcov.reportPath\":\"coverage/lcov.info\",\"sonar.genericcoverage.unitTestReportPaths\":\".scannerwork/unittest.xml\"}"
+
 install:
   # Install packages.
   - npm install
 
 script:
-  - npm test -- --reporter mocha-sonar-generic-test-coverage --reporter-options outputFile=report/unittest.xml
-  - node dist/bin/sonar-scanner \
-    "-Dsonar.organization=default" \
-    "-Dsonar.projectName=SonarQube/SonarCloud Scanner for the JavaScript world" \
-    "-Dsonar.sources=dist" \
-    "-Dsonar.tests=specs" \
-    "-Dsonar.javascript.lcov.reportPath=coverage/lcov.info" \
-    "-Dsonar.genericcoverage.unitTestReportPaths=report/unittest.xml"
+  - npm test -- --reporter mocha-sonar-generic-test-coverage --reporter-options outputFile=.scannerwork/unittest.xml
+  - node dist/bin/sonar-scanner
 
 cache:
   directories:

@@ -124,4 +124,4 @@ typings/
 
 # End of https://www.gitignore.io/api/node,sonar,intellij+all
 
-report
+.scannerwork
